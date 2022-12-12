@@ -133,13 +133,15 @@ public class GamePanel extends JPanel implements Runnable{
                 checkCollision();
                 repaint();
                 delta--;
-                System.out.println(delta);
+
                 if (score.victory){
                     long time0 = System.currentTimeMillis();
+                    int g=0;
                     while (System.currentTimeMillis()-time0<10000){
-                        int g = 1;
+                        g ++;
+                        System.out.println(g);
                     }
-                    notfinish = true;
+                    notfinish = false;
                 }
 
             }
