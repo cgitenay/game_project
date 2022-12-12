@@ -67,14 +67,13 @@ public class Paddle extends Rectangle{
 
     public void setYDirection(int yDirection){
         yVelocity = yDirection;
-        System.out.println("Y");
-        System.out.println(yDirection);
+
 
     }
 
     public void move(){
         y=y + yVelocity;
-        System.out.println(y);
+
     }
 
     public void draw(Graphics g) {
