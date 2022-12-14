@@ -24,13 +24,15 @@ public class Score extends Rectangle{
         g.drawString(String.valueOf(player1/10)+String.valueOf(player1%10), (GAME_WIDTH/2)-85, 50);
         g.drawString(String.valueOf(player2/10)+String.valueOf(player2%10), (GAME_WIDTH/2)+20, 50);
 
-        if (player1 >= 10) {
+        if (player1 >= 3) {
             g.drawString("Player 1 WIN !", (GAME_WIDTH / 2)-250, GAME_HEIGHT / 2);
             victory = true;
         }
-        if (player2 >= 10) {
+        if (player2 >= 3) {
             g.drawString("Player 2 WIN !", (GAME_WIDTH / 2)-250, GAME_HEIGHT / 2);
             victory = true;
         }
+
     }
+
 }

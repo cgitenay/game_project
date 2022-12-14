@@ -12,6 +12,8 @@ public class GamePanel extends JPanel implements Runnable{
     static final int PADDLE_WIDTH = 25;
     static final int PADDLE_HEIGHT = 100;
 
+
+
     Thread gameThread;
     Image image;
     Graphics graphics;
@@ -25,6 +27,7 @@ public class GamePanel extends JPanel implements Runnable{
     public GamePanel() {
         newPaddles();
         newBall();
+
         score = new Score(GAME_WIDTH,GAME_HEIGHT);
         this.setFocusable(true);
         this.addKeyListener(new AL());
@@ -32,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         gameThread = new Thread(this);
         gameThread.start();
+
     }
 
 
@@ -108,13 +112,15 @@ public class GamePanel extends JPanel implements Runnable{
             score.player2++;
             newPaddles();
             newBall();
-            System.out.println("Player 2: "+score.player2);
+
+
         }
         if(ball.x >= GAME_WIDTH-BALL_DIAMETER){
             score.player1++;
             newPaddles();
             newBall();
-            System.out.println("Player 1: "+ score.player1);
+
+
         }
     }
     public void run(){
@@ -123,8 +129,8 @@ public class GamePanel extends JPanel implements Runnable{
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
         double delta = 0;
-        boolean notfinish = true;
-        while(notfinish){
+
+        while(!score.victory){
             long now = System.nanoTime();
             delta += (now - lastTime)/ns;
             lastTime = now;
@@ -134,15 +140,7 @@ public class GamePanel extends JPanel implements Runnable{
                 repaint();
                 delta--;
 
-                if (score.victory){
-                    long time0 = System.currentTimeMillis();
-                    int g=0;
-                    while (System.currentTimeMillis()-time0<10000){
-                        g ++;
-                        System.out.println(g);
-                    }
-                    notfinish = false;
-                }
+
 
             }
         }
