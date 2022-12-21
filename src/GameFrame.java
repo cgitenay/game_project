@@ -14,7 +14,7 @@ public class GameFrame extends  JFrame{
 
         setLayout(new BorderLayout());
 
-git
+ 
         btn = new JButton("Mode 2V2");
 
         btn.addActionListener(new ActionListener() {
