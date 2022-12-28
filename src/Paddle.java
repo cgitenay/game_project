@@ -85,5 +85,12 @@ public class Paddle extends Rectangle{
         g.fillRect(x, y, width, height);
 
     }
+    public boolean istop(Ball ball, int PADDLE_HEIGHT){
+        if (ball.y < y + (PADDLE_HEIGHT/2))
+            return true;
+        else
+            return false;
+
+    }
 
 }

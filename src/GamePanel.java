@@ -19,6 +19,7 @@ public class GamePanel extends JPanel implements Runnable{
     Graphics graphics;
     Random random;
     Paddle paddle1;
+
     Paddle paddle2;
     Ball ball;
     Score score;
@@ -72,6 +73,7 @@ public class GamePanel extends JPanel implements Runnable{
             paddle1.y = 0;
         if(paddle1.y>= GAME_HEIGHT-PADDLE_HEIGHT)
             paddle1.y= GAME_HEIGHT-PADDLE_HEIGHT;
+
         if (paddle2.y<=0)
             paddle2.y = 0;
         if(paddle2.y>= GAME_HEIGHT-PADDLE_HEIGHT)
@@ -88,21 +90,21 @@ public class GamePanel extends JPanel implements Runnable{
         if(ball.intersects(paddle1)) {
             ball.xVelocity = Math.abs(ball.xVelocity);
             ball.xVelocity++;
-            if (ball.yVelocity > 0)
-                ball.yVelocity++;
-            else
-                ball.yVelocity--;
+            ball.yVelocity = - (paddle1.y+(PADDLE_HEIGHT/2) - ball.y+BALL_DIAMETER/2)/8+3;
             ball.setXDirection(ball.xVelocity);
             ball.setYDirection(ball.yVelocity);
         }
 
+
+
+
         if(ball.intersects(paddle2)) {
             ball.xVelocity = Math.abs(ball.xVelocity);
             ball.xVelocity++;
-            if (ball.yVelocity > 0)
-                ball.yVelocity++;
-            else
-                ball.yVelocity--;
+
+
+            ball.yVelocity = - (paddle2.y+(PADDLE_HEIGHT/2) - ball.y+BALL_DIAMETER/2)/8+3;
+
             ball.setXDirection(-ball.xVelocity);
             ball.setYDirection(ball.yVelocity);
         }
